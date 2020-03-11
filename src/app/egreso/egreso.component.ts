@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Egreso } from './Egreso.model';
+import { EgresoServicio } from './Egreso.service';
 
 @Component({
   selector: 'app-egreso',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./egreso.component.css']
 })
 export class EgresoComponent implements OnInit {
+  egresos: Egreso[] = [];
+  @Input() egresoTotal: number;
 
-  constructor() { }
+  constructor(private egresoService: EgresoServicio) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.egresos = this.egresoService.egresos;
+  }
+
+  eliminarEgreso(egreso: Egreso) {
+    this.egresoService.eliminar(egreso);
+  }
+
+  calcularPorcentaje(egreso: Egreso) {
+    return egreso.valor / this.egresoTotal;
   }
 
 }

@@ -234,6 +234,14 @@ h2 {
   color: #FF5049;
 }
 
+.border-ing {
+  border: 1px solid #28B9B5 !important;
+}
+
+.border-egr {
+  border: 1px solid #FF5049 !important;
+}
+
 
 .elemento_eliminar {
   float: left;

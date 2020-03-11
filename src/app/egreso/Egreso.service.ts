@@ -10,4 +10,8 @@ export class EgresoServicio {
     const index = this.egresos.indexOf(egreso);
     this.egresos.splice(index, 1);
   }
+
+  agregar(ingreso: Egreso) {
+    this.egresos.push(ingreso);
+  }
 }
